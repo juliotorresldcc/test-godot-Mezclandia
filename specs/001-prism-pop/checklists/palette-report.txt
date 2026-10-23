@@ -1,0 +1,58 @@
+Fuente: specs/001-prism-pop/art-direction.md
+Tokens leídos: 14; pares de contraste: 20
+
+== ART-003 Contraste WCAG ==
+OK     text.primary     sobre bg.night         17.91:1 (mín 4.5)
+OK     text.primary     sobre bg.surface       14.70:1 (mín 4.5)
+OK     text.primary     sobre bg.surface_alt   12.37:1 (mín 4.5)
+OK     text.secondary   sobre bg.night          9.41:1 (mín 4.5)
+OK     text.secondary   sobre bg.surface        7.73:1 (mín 4.5)
+OK     text.on_accent   sobre ui.accent        12.68:1 (mín 4.5)
+OK     orb.cyan         sobre bg.night         12.68:1 (mín 3.0)
+OK     orb.magenta      sobre bg.night          6.10:1 (mín 3.0)
+OK     orb.yellow       sobre bg.night         14.98:1 (mín 3.0)
+OK     orb.violet       sobre bg.night          6.41:1 (mín 3.0)
+OK     orb.crystal      sobre bg.night         17.48:1 (mín 3.0)
+OK     ui.glyph         sobre orb.cyan         12.68:1 (mín 3.0)
+OK     ui.glyph         sobre orb.magenta       6.10:1 (mín 3.0)
+OK     ui.glyph         sobre orb.yellow       14.98:1 (mín 3.0)
+OK     ui.glyph         sobre orb.violet        6.41:1 (mín 3.0)
+OK     ui.glyph         sobre orb.crystal      17.48:1 (mín 3.0)
+OK     orb.cyan         sobre bg.deep          10.72:1 (mín 3.0)
+OK     orb.magenta      sobre bg.deep           5.16:1 (mín 3.0)
+OK     orb.yellow       sobre bg.deep          12.66:1 (mín 3.0)
+OK     orb.violet       sobre bg.deep           5.42:1 (mín 3.0)
+
+== ART-004 Distinción entre colores de orbe (ΔE76; requisito con visión normal ≥ 20.0) ==
+-- normal
+OK     orb.cyan     vs orb.magenta  ΔE =  127.6
+OK     orb.cyan     vs orb.yellow   ΔE =  103.1
+OK     orb.cyan     vs orb.violet   ΔE =   89.9
+OK     orb.magenta  vs orb.yellow   ΔE =  148.3
+OK     orb.magenta  vs orb.violet   ΔE =   49.5
+OK     orb.yellow   vs orb.violet   ΔE =  144.0
+-- protanopia
+OK     orb.cyan     vs orb.magenta  ΔE =   51.4
+OK     orb.cyan     vs orb.yellow   ΔE =   96.8
+OK     orb.cyan     vs orb.violet   ΔE =   49.3
+OK     orb.magenta  vs orb.yellow   ΔE =  138.1
+AVISO  orb.magenta  vs orb.violet   ΔE =   10.9
+OK     orb.yellow   vs orb.violet   ΔE =  140.9
+-- deuteranopia
+AVISO  orb.cyan     vs orb.magenta  ΔE =   16.4
+OK     orb.cyan     vs orb.yellow   ΔE =  101.3
+OK     orb.cyan     vs orb.violet   ΔE =   36.2
+OK     orb.magenta  vs orb.yellow   ΔE =  105.0
+OK     orb.magenta  vs orb.violet   ΔE =   29.8
+OK     orb.yellow   vs orb.violet   ΔE =  134.4
+-- tritanopia
+OK     orb.cyan     vs orb.magenta  ΔE =  127.6
+OK     orb.cyan     vs orb.yellow   ΔE =   66.2
+OK     orb.cyan     vs orb.violet   ΔE =   55.9
+OK     orb.magenta  vs orb.yellow   ΔE =   68.3
+OK     orb.magenta  vs orb.violet   ΔE =   76.2
+OK     orb.yellow   vs orb.violet   ΔE =   39.1
+
+AVISO = par poco distinguible en esa simulación; depende de los símbolos (ART-002).
+
+RESULTADO GLOBAL: APROBADO

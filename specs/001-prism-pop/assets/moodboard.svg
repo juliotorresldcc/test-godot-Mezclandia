@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" font-family="sans-serif">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1A4D"/><stop offset="1" stop-color="#070B1F"/></linearGradient>
+<radialGradient id="orb_cyan"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/><stop offset="0.45" stop-color="#00E5FF"/><stop offset="1" stop-color="#00E5FF"/></radialGradient>
+<radialGradient id="orb_magenta"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/><stop offset="0.45" stop-color="#FF2BD6"/><stop offset="1" stop-color="#FF2BD6"/></radialGradient>
+<radialGradient id="orb_yellow"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/><stop offset="0.45" stop-color="#FFE14D"/><stop offset="1" stop-color="#FFE14D"/></radialGradient>
+<radialGradient id="orb_violet"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/><stop offset="0.45" stop-color="#A47CFF"/><stop offset="1" stop-color="#A47CFF"/></radialGradient>
+<radialGradient id="orb_crystal"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/><stop offset="0.45" stop-color="#E8F4FF"/><stop offset="1" stop-color="#E8F4FF"/></radialGradient>
+</defs>
+<rect width="1200" height="1000" fill="#070B1F"/>
+<text x="40" y="60" fill="#F2F5FF" font-size="32" font-weight="bold">PRISM POP — moodboard esquemático (generado; no es arte final)</text>
+<text x="40" y="120" fill="#A9B3D9" font-size="20">Paleta (ART-001)</text>
+<rect x="40" y="140" width="70" height="70" rx="10" fill="#070B1F" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="40" y="228" fill="#F2F5FF" font-size="11">bg.night</text>
+<text x="40" y="242" fill="#A9B3D9" font-size="11">#070B1F</text>
+<rect x="130" y="140" width="70" height="70" rx="10" fill="#0E1A4D" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="130" y="228" fill="#F2F5FF" font-size="11">bg.deep</text>
+<text x="130" y="242" fill="#A9B3D9" font-size="11">#0E1A4D</text>
+<rect x="220" y="140" width="70" height="70" rx="10" fill="#151E48" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="220" y="228" fill="#F2F5FF" font-size="11">bg.surface</text>
+<text x="220" y="242" fill="#A9B3D9" font-size="11">#151E48</text>
+<rect x="310" y="140" width="70" height="70" rx="10" fill="#1F2A60" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="310" y="228" fill="#F2F5FF" font-size="11">bg.surface_alt</text>
+<text x="310" y="242" fill="#A9B3D9" font-size="11">#1F2A60</text>
+<rect x="400" y="140" width="70" height="70" rx="10" fill="#00E5FF" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="400" y="228" fill="#F2F5FF" font-size="11">orb.cyan</text>
+<text x="400" y="242" fill="#A9B3D9" font-size="11">#00E5FF</text>
+<rect x="490" y="140" width="70" height="70" rx="10" fill="#FF2BD6" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="490" y="228" fill="#F2F5FF" font-size="11">orb.magenta</text>
+<text x="490" y="242" fill="#A9B3D9" font-size="11">#FF2BD6</text>
+<rect x="580" y="140" width="70" height="70" rx="10" fill="#FFE14D" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="580" y="228" fill="#F2F5FF" font-size="11">orb.yellow</text>
+<text x="580" y="242" fill="#A9B3D9" font-size="11">#FFE14D</text>
+<rect x="40" y="260" width="70" height="70" rx="10" fill="#A47CFF" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="40" y="348" fill="#F2F5FF" font-size="11">orb.violet</text>
+<text x="40" y="362" fill="#A9B3D9" font-size="11">#A47CFF</text>
+<rect x="130" y="260" width="70" height="70" rx="10" fill="#E8F4FF" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="130" y="348" fill="#F2F5FF" font-size="11">orb.crystal</text>
+<text x="130" y="362" fill="#A9B3D9" font-size="11">#E8F4FF</text>
+<rect x="220" y="260" width="70" height="70" rx="10" fill="#F2F5FF" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="220" y="348" fill="#F2F5FF" font-size="11">text.primary</text>
+<text x="220" y="362" fill="#A9B3D9" font-size="11">#F2F5FF</text>
+<rect x="310" y="260" width="70" height="70" rx="10" fill="#A9B3D9" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="310" y="348" fill="#F2F5FF" font-size="11">text.secondary</text>
+<text x="310" y="362" fill="#A9B3D9" font-size="11">#A9B3D9</text>
+<rect x="400" y="260" width="70" height="70" rx="10" fill="#070B1F" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="400" y="348" fill="#F2F5FF" font-size="11">text.on_accent</text>
+<text x="400" y="362" fill="#A9B3D9" font-size="11">#070B1F</text>
+<rect x="490" y="260" width="70" height="70" rx="10" fill="#00E5FF" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="490" y="348" fill="#F2F5FF" font-size="11">ui.accent</text>
+<text x="490" y="362" fill="#A9B3D9" font-size="11">#00E5FF</text>
+<rect x="580" y="260" width="70" height="70" rx="10" fill="#070B1F" stroke="#A9B3D9" stroke-opacity="0.4"/>
+<text x="580" y="348" fill="#F2F5FF" font-size="11">ui.glyph</text>
+<text x="580" y="362" fill="#A9B3D9" font-size="11">#070B1F</text>
+<text x="40" y="420" fill="#A9B3D9" font-size="20">Orbes y símbolos (ART-002, ART-015)</text>
+<circle cx="90" cy="500" r="56" fill="#00E5FF" fill-opacity="0.25"/>
+<circle cx="90" cy="500" r="36" fill="url(#orb_cyan)"/>
+<polygon points="90,480 107.4,510.0 72.6,510.0" fill="#070B1F" fill-opacity="0.85"/>
+<text x="90" y="580" fill="#F2F5FF" font-size="13" text-anchor="middle">CIAN</text>
+<circle cx="210" cy="500" r="56" fill="#FF2BD6" fill-opacity="0.25"/>
+<circle cx="210" cy="500" r="36" fill="url(#orb_magenta)"/>
+<rect x="196.0" y="486.0" width="28.0" height="28.0" fill="#070B1F" fill-opacity="0.85"/>
+<text x="210" y="580" fill="#F2F5FF" font-size="13" text-anchor="middle">MAGENTA</text>
+<circle cx="330" cy="500" r="56" fill="#FFE14D" fill-opacity="0.25"/>
+<circle cx="330" cy="500" r="36" fill="url(#orb_yellow)"/>
+<rect x="325.5" y="480" width="9.0" height="40" fill="#070B1F" fill-opacity="0.85"/><rect x="310" y="495.5" width="40" height="9.0" fill="#070B1F" fill-opacity="0.85"/>
+<text x="330" y="580" fill="#F2F5FF" font-size="13" text-anchor="middle">AMARILLO</text>
+<circle cx="450" cy="500" r="56" fill="#A47CFF" fill-opacity="0.25"/>
+<circle cx="450" cy="500" r="36" fill="url(#orb_violet)"/>
+<polygon points="450.0,480.0 454.9,493.2 469.0,493.8 458.0,502.6 461.8,516.2 450.0,508.4 438.2,516.2 442.0,502.6 431.0,493.8 445.1,493.2" fill="#070B1F" fill-opacity="0.85"/>
+<text x="450" y="580" fill="#F2F5FF" font-size="13" text-anchor="middle">VIOLETA</text>
+<circle cx="570" cy="500" r="56" fill="#E8F4FF" fill-opacity="0.25"/>
+<circle cx="570" cy="500" r="36" fill="url(#orb_crystal)"/>
+<polygon points="570,480 590,500 570,520 550,500" fill="none" stroke="#070B1F" stroke-width="3"/>
+<text x="570" y="580" fill="#F2F5FF" font-size="13" text-anchor="middle">CRISTAL</text>
+<text x="780" y="100" fill="#A9B3D9" font-size="20">Disposición 1080×1920 (ART-010…022)</text>
+<rect x="780" y="120" width="360.0" height="640.0" fill="url(#bg)" stroke="#A9B3D9" stroke-opacity="0.5"/>
+<circle cx="960.0" cy="440.0" r="151.2" fill="none" stroke="#F2F5FF" stroke-opacity="0.08"/>
+<circle cx="960.0" cy="440.0" r="158.76" fill="none" stroke="#A9B3D9" stroke-opacity="0.3" stroke-dasharray="4 4"/>
+<circle cx="960.0" cy="440.0" r="40.824" fill="none" stroke="#F2F5FF" stroke-opacity="0.04" stroke-width="30.24"/>
+<circle cx="960.0" cy="440.0" r="25.704" fill="none" stroke="#F2F5FF" stroke-opacity="0.25" stroke-width="1.751824817518248"/>
+<circle cx="960.0" cy="440.0" r="55.943999999999996" fill="none" stroke="#F2F5FF" stroke-opacity="0.25" stroke-width="1.751824817518248"/>
+<circle cx="960.0" cy="440.0" r="18.144" fill="url(#orb_cyan)"/>
+<polygon points="960.0,429.416 969.20808,445.292 950.79192,445.292" fill="#070B1F" fill-opacity="0.85"/>
+<circle cx="1005.36" cy="326.6" r="7.56" fill="url(#orb_cyan)"/>
+<circle cx="866.256" cy="462.68" r="7.56" fill="url(#orb_magenta)"/>
+<circle cx="990.24" cy="480.824" r="7.56" fill="url(#orb_yellow)"/>
+<text x="960.0" y="180" fill="#F2F5FF" font-size="35.03649635036496" font-weight="bold" text-anchor="middle">12 450</text>
+<text x="960.0" y="202.77372262773721" fill="#FFE14D" font-size="21.021897810218977" text-anchor="middle">×2.0</text>
+<text x="794.014598540146" y="150" fill="#F2F5FF" font-size="15.766423357664232">1:02</text>
+<rect x="1083.941605839416" y="134.01459854014598" width="42.043795620437955" height="42.043795620437955" fill="none" stroke="#A9B3D9" stroke-dasharray="3 3"/>
+<circle cx="960.0" cy="615.3189489051094" r="6.048" fill="url(#orb_magenta)"/>
+<text x="960.0" y="632.837197080292" fill="#A9B3D9" font-size="12.262773722627736" text-anchor="middle">SIGUIENTE</text>
+<text x="794.014598540146" y="725.970802919708" fill="#A9B3D9" font-size="12.262773722627736">ENERGÍA</text>
+<rect x="794.014598540146" y="731.970802919708" width="158.97810218978103" height="7.007299270072992" fill="#F2F5FF" fill-opacity="0.85"/>
+<text x="967.007299270073" y="725.970802919708" fill="#A9B3D9" font-size="12.262773722627736">PRISM</text>
+<rect x="967.007299270073" y="731.970802919708" width="95.38686131386861" height="7.007299270072992" fill="#A47CFF"/>
+</svg>
