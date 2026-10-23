@@ -1,6 +1,6 @@
 # Guía de dirección artística: PRISM POP v1
 
-- **Versión:** 0.1.0 (borrador, fase Clarify)
+- **Versión:** 0.1.0 (aprobada el 2026-10-23)
 - **Fecha:** 2026-10-23
 - **Estado:** propuesta `[P]` completa. La identidad general es `[M]` (mandato); los valores concretos requieren aprobación y revisión visual (§9).
 - **Fuente de verdad de:** paleta, símbolos, proporciones, tipografía, animaciones y procedimiento de revisión visual. `tools/palette_check.py` lee las tablas de §1 y §3 de este archivo; **no cambies su formato** sin actualizar el script.

@@ -1,8 +1,8 @@
 # Registro de clarificaciones, decisiones y cambios: PRISM POP v1
 
-- **Versión:** 0.1.0
+- **Versión:** 0.2.0
 - **Fecha:** 2026-10-23
-- **Fase:** Clarify, ronda 1
+- **Fase:** Clarify cerrada (ronda 1 resuelta)
 - **Fuente de verdad de:** hallazgos de la revisión de la especificación, decisiones abiertas y resueltas, propuestas pendientes y solicitudes de cambio (`CR-NNN`).
 
 ## 1. Método
@@ -19,35 +19,35 @@ Severidades:
 
 | ID | Severidad | Hallazgo | Estado | Resolución / decisión |
 |----|-----------|----------|--------|-----------------------|
-| H-01 | CRÍTICA | El mandato exige «controles de un toque» pero no define qué hace el toque (cambiar el color del núcleo, capturar, rotar…). Toda la sección de reglas depende de ello. | **Abierto** | D-01 |
-| H-02 | CRÍTICA | El mandato exige partidas de 30–90 s pero no define el mecanismo que las limita. Sin límite, un jugador experto puede superar los 90 s indefinidamente. | **Abierto** | D-02 |
-| H-03 | ALTA | Godot no está instalado en el entorno. La versión estable más reciente publicada es **4.7.2-stable** (consultado en los tags del repositorio oficial el 2026-10-23). No se puede validar ni ejecutar nada sin descargarlo. | **Abierto** | D-03 |
-| H-04 | ALTA | No se define la plataforma objetivo concreta (Android, iOS o ambas). La exportación para iOS requiere macOS y Xcode, no disponibles en este entorno Linux. | **Abierto** | D-03 |
-| H-05 | ALTA | No existen recursos (audio, música, tipografías, arte). El mandato no indica su origen ni su licencia. | **Abierto** | D-04 |
-| H-06 | MEDIA | GitHub Spec Kit no está instalado (última versión publicada v1.2.3). Instalarlo modifica el entorno y requiere autorización. Mientras tanto se sigue un flujo SDD manual con su estructura de directorios. | **Abierto** | D-05 |
-| H-07 | MEDIA | «Controles de un toque» frente a la existencia de botones (Pausa, menús). | Propuesta | Interpretación propuesta: «un toque» se refiere al control de juego; la interfaz usa botones convencionales (FR-INP-001). |
-| H-08 | MEDIA | El mandato no define cómo se activa PRISM ni qué hace exactamente. | Propuesta | M-01 |
-| H-09 | MEDIA | «Eventos especiales» sin definir. | Propuesta | M-02 |
-| H-10 | MEDIA | No se define qué ocurre con las recompensas al abandonar una partida. Sin regla, «salir y reintentar» podría explotarse. | Propuesta | M-03 |
-| H-11 | MEDIA | No se define el tratamiento de toques sin objetivo ni de toques repetidos. | Propuesta | M-04 |
-| H-12 | MEDIA | El mandato no incluye aprendizaje (onboarding); sin él, la mecánica no se entiende en la primera partida (SC-004). Añadirlo es una ampliación de alcance. | Propuesta | M-05 |
-| H-13 | MEDIA | El juego responsable se pide «desde el diseño» sin medidas concretas más allá de no monetizar. | Propuesta | M-06 |
-| H-14 | MEDIA | Idioma(s) del juego no definidos. | Propuesta | M-07 |
-| H-15 | MEDIA | Los objetivos de rendimiento no son verificables sin un dispositivo de referencia. | Propuesta | M-08 |
-| H-16 | MEDIA | Misiones: no se define si son diarias, cómo se reclaman ni cómo se reponen. | Propuesta | M-09 |
-| H-17 | MEDIA | Catálogo de cosméticos y precios no definidos. | Propuesta | M-10 |
-| H-18 | MEDIA | Fórmula de cristales no definida. | Propuesta | M-11 |
-| H-19 | MEDIA | Ubicación del indicador de siguiente objetivo: junto al núcleo competiría visualmente con los orbes reales de la zona. | Propuesta | M-12 |
-| H-20 | MEDIA | El script de paleta detecta pares poco distinguibles con daltonismo: magenta/violeta en protanopía (ΔE 10.9) y cian/magenta en deuteranopía (ΔE 16.4). | Propuesta | Los símbolos (ART-002) resuelven la distinción; se propone que «Símbolos de color» esté activo por defecto (B-05). |
-| H-21 | MEDIA | Al renderizar el moodboard, con `orb_radius = 0.05 R` el orbe mide unos 17 dp de diámetro en un teléfono de 1080 px y su símbolo unos 10 dp: probablemente poco legible. | Propuesta | M-13 |
-| H-22 | MEDIA | No hay pantalla de estadísticas en el mandato, pero sí «estadísticas» en progresión. | Propuesta | Mostrarlas en la pantalla Misiones (FR-STAT-011). Incluido en M-09. |
-| H-23 | BAJA | Cuenta atrás al reanudar no definida. | Propuesta | B-01 |
-| H-24 | BAJA | Confirmación al reiniciar desde Pausa no definida. | Propuesta | B-02 |
-| H-25 | BAJA | Protección del guardado frente a manipulación no definida. | Propuesta | B-03 |
-| H-26 | BAJA | Empate con el récord no definido. | Propuesta | B-04 |
-| H-27 | BAJA | Duraciones exactas de partida no verificables sin jugadores reales. | Propuesta | Verificación en dos niveles: simulación con bots (SC-001) + pruebas con jugadores (pendiente; requiere dispositivo). Las tasas de error de los bots son suposiciones a calibrar. |
-| H-28 | BAJA | Posible contradicción entre «efectos reactivos» y accesibilidad (destellos). | Resuelto en borrador | Limitador de destellos (ART-052) y «Reducir efectos» (ART-050). Pendiente solo de la aprobación general. |
-| H-29 | BAJA | «Partículas controladas» no cuantificado. | Resuelto en borrador | Presupuesto de 300 partículas (ART-051). |
+| H-01 | CRÍTICA | El mandato exige «controles de un toque» pero no define qué hace el toque (cambiar el color del núcleo, capturar, rotar…). Toda la sección de reglas depende de ello. | Resuelto | D-01 → A |
+| H-02 | CRÍTICA | El mandato exige partidas de 30–90 s pero no define el mecanismo que las limita. Sin límite, un jugador experto puede superar los 90 s indefinidamente. | Resuelto | D-02 → A |
+| H-03 | ALTA | Godot no está instalado en el entorno. La versión estable más reciente publicada es **4.7.2-stable** (consultado en los tags del repositorio oficial el 2026-10-23). No se puede validar ni ejecutar nada sin descargarlo. | Resuelto | D-03 → A |
+| H-04 | ALTA | No se define la plataforma objetivo concreta (Android, iOS o ambas). La exportación para iOS requiere macOS y Xcode, no disponibles en este entorno Linux. | Resuelto | D-03 → A |
+| H-05 | ALTA | No existen recursos (audio, música, tipografías, arte). El mandato no indica su origen ni su licencia. | Resuelto | D-04 → A |
+| H-06 | MEDIA | GitHub Spec Kit no está instalado (última versión publicada v1.2.3). Instalarlo modifica el entorno y requiere autorización. Mientras tanto se sigue un flujo SDD manual con su estructura de directorios. | Resuelto | D-05 → A |
+| H-07 | MEDIA | «Controles de un toque» frente a la existencia de botones (Pausa, menús). | Aprobado | Interpretación propuesta: «un toque» se refiere al control de juego; la interfaz usa botones convencionales (FR-INP-001). |
+| H-08 | MEDIA | El mandato no define cómo se activa PRISM ni qué hace exactamente. | Aprobado | M-01 |
+| H-09 | MEDIA | «Eventos especiales» sin definir. | Aprobado | M-02 |
+| H-10 | MEDIA | No se define qué ocurre con las recompensas al abandonar una partida. Sin regla, «salir y reintentar» podría explotarse. | Aprobado | M-03 |
+| H-11 | MEDIA | No se define el tratamiento de toques sin objetivo ni de toques repetidos. | Aprobado | M-04 |
+| H-12 | MEDIA | El mandato no incluye aprendizaje (onboarding); sin él, la mecánica no se entiende en la primera partida (SC-004). Añadirlo es una ampliación de alcance. | Aprobado | M-05 |
+| H-13 | MEDIA | El juego responsable se pide «desde el diseño» sin medidas concretas más allá de no monetizar. | Aprobado | M-06 |
+| H-14 | MEDIA | Idioma(s) del juego no definidos. | Aprobado | M-07 |
+| H-15 | MEDIA | Los objetivos de rendimiento no son verificables sin un dispositivo de referencia. | Aprobado | M-08 |
+| H-16 | MEDIA | Misiones: no se define si son diarias, cómo se reclaman ni cómo se reponen. | Aprobado | M-09 |
+| H-17 | MEDIA | Catálogo de cosméticos y precios no definidos. | Aprobado | M-10 |
+| H-18 | MEDIA | Fórmula de cristales no definida. | Aprobado | M-11 |
+| H-19 | MEDIA | Ubicación del indicador de siguiente objetivo: junto al núcleo competiría visualmente con los orbes reales de la zona. | Aprobado | M-12 |
+| H-20 | MEDIA | El script de paleta detecta pares poco distinguibles con daltonismo: magenta/violeta en protanopía (ΔE 10.9) y cian/magenta en deuteranopía (ΔE 16.4). | Aprobado | Los símbolos (ART-002) resuelven la distinción; se propone que «Símbolos de color» esté activo por defecto (B-05). |
+| H-21 | MEDIA | Al renderizar el moodboard, con `orb_radius = 0.05 R` el orbe mide unos 17 dp de diámetro en un teléfono de 1080 px y su símbolo unos 10 dp: probablemente poco legible. | Aprobado | M-13 |
+| H-22 | MEDIA | No hay pantalla de estadísticas en el mandato, pero sí «estadísticas» en progresión. | Aprobado | Mostrarlas en la pantalla Misiones (FR-STAT-011). Incluido en M-09. |
+| H-23 | BAJA | Cuenta atrás al reanudar no definida. | Aprobado | B-01 |
+| H-24 | BAJA | Confirmación al reiniciar desde Pausa no definida. | Aprobado | B-02 |
+| H-25 | BAJA | Protección del guardado frente a manipulación no definida. | Aprobado | B-03 |
+| H-26 | BAJA | Empate con el récord no definido. | Aprobado | B-04 |
+| H-27 | BAJA | Duraciones exactas de partida no verificables sin jugadores reales. | Aprobado | Verificación en dos niveles: simulación con bots (SC-001) + pruebas con jugadores (pendiente; requiere dispositivo). Las tasas de error de los bots son suposiciones a calibrar. |
+| H-28 | BAJA | Posible contradicción entre «efectos reactivos» y accesibilidad (destellos). | Resuelto | Limitador de destellos (ART-052) y «Reducir efectos» (ART-050). Pendiente solo de la aprobación general. |
+| H-29 | BAJA | «Partículas controladas» no cuantificado. | Resuelto | Presupuesto de 300 partículas (ART-051). |
 
 Ningún hallazgo se ha marcado como resuelto por suposición: los «Resuelto en borrador» tienen ya una regla verificable escrita, pero siguen sujetos a la aprobación general de la especificación.
 
@@ -134,4 +134,13 @@ Ninguna todavía.
 
 | Fecha | ID | Decisión | Decidido por |
 |-------|----|----------|--------------|
-| — | — | Sin decisiones tomadas todavía. | — |
+| 2026-10-23 | D-01 | Opción A: pulso de captura en zona. | Propietario, mediante la instrucción «haz el proyecto» tras la presentación de las opciones recomendadas. |
+| 2026-10-23 | D-02 | Opción A: energía + límite de 90 s (`COMPLETED`). | Ídem. |
+| 2026-10-23 | D-03 | Opción A: Godot 4.7.2-stable, GDScript tipado, Android en v1. Descarga de Godot autorizada y realizada (binario oficial, commit `ed1daf0bf`). | Ídem. |
+| 2026-10-23 | D-04 | Opción A: arte procedimental, audio sintetizado con script reproducible y fuentes OFL (Orbitron y Exo 2, obtenidas de los paquetes npm `@fontsource/*` 5.3.0 porque GitHub raw está bloqueado en el entorno). | Ídem. |
+| 2026-10-23 | D-05 | Opción A: flujo Markdown sin instalar Spec Kit. | Ídem. |
+| 2026-10-23 | M-01…M-13 | Aprobadas tal como están redactadas, incluidas las ampliaciones de alcance M-05 (aprendizaje) y M-06 (recordatorio de descanso). | Ídem. |
+| 2026-10-23 | B-01…B-05 | Aplicados los valores por defecto. | Ídem. |
+| 2026-10-23 | Constitución 1.0.0 | Ratificada. | Ídem. |
+
+> Nota de trazabilidad: el propietario no eligió opción por opción; respondió «haz el proyecto» a la presentación de las recomendaciones. Se interpreta como aprobación de todas las opciones marcadas como recomendadas. Si alguna no refleja su intención, se tramitará como solicitud de cambio (constitución §3).

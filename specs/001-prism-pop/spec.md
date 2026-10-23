@@ -1,9 +1,9 @@
 # Especificación funcional: PRISM POP v1
 
 - **Feature:** `001-prism-pop`
-- **Versión del documento:** 0.1.0 (borrador en fase Clarify)
+- **Versión del documento:** 0.2.0 (aprobada)
 - **Fecha:** 2026-10-23
-- **Estado:** BORRADOR — no aprobado. Contiene decisiones abiertas (ver `clarifications.md`).
+- **Estado:** APROBADA el 2026-10-23 (ver `clarifications.md` §7).
 - **Documentos asociados (fuentes de verdad propias):**
   - `parameters.md` — valores, tipos, unidades y rangos de todos los parámetros ajustables.
   - `art-direction.md` — guía visual verificable (paleta, proporciones, animaciones, revisión visual).
@@ -14,8 +14,8 @@
 | Marca | Significado |
 |-------|-------------|
 | `[M]` | Exigido explícitamente por el mandato del propietario. Aprobado en su enunciado; los detalles concretos pueden ser `[P]`. |
-| `[P]` | Propuesta del agente. **No aprobada.** Requiere aprobación del propietario. |
-| `[NEEDS CLARIFICATION: D-xx]` | Depende de una decisión abierta. No implementable hasta resolverla. |
+| `[P]` | Propuesta del agente, **aprobada** el 2026-10-23 junto con el resto de la especificación. |
+| `(D-xx → A)` | Requisito que dependía de una decisión ya resuelta; se indica la opción elegida. |
 
 Los parámetros se citan con su nombre en `monoespaciado` (p. ej. `orb_speed_min`). Sus valores por defecto solo aparecen aquí en los ejemplos numéricos; la fuente de verdad es `parameters.md`.
 
@@ -32,7 +32,7 @@ Los parámetros se citan con su nombre en `monoespaciado` (p. ej. `orb_speed_min
 
 PRISM POP es un arcade híbrido hypercasual para teléfonos móviles en orientación vertical. Un **núcleo** energético en el centro de la pantalla muestra un **color objetivo**. Desde el borde de la arena llegan **orbes** de colores hacia el núcleo. El jugador, con un único gesto (tocar la pantalla), emite un **pulso** que captura el orbe situado en la **zona de captura** que rodea al núcleo. Capturar un orbe del color objetivo es un **acierto**; capturar uno de otro color, o dejar que un orbe del color objetivo alcance el núcleo, es un **error**. Los aciertos consecutivos forman **combos** que multiplican la puntuación y cargan el **modo PRISM**. Los errores consumen **energía**; la partida termina al agotarse la energía o al alcanzar la duración máxima. Las partidas otorgan **cristales** para desbloquear cosméticos.
 
-> La mecánica concreta del toque (pulso de captura en zona) es una **propuesta** `[P]` y es la decisión **D-01**, la más importante de esta fase. El resto de las reglas de §3 se ha redactado sobre esa propuesta; si D-01 cambia, §3 debe rehacerse.
+> La mecánica del toque (pulso de captura en zona) quedó fijada por la decisión **D-01 → A**.
 
 ### 0.1 Dentro del alcance de v1
 Partida completa (§3), ocho pantallas (§4), dirección artística (§5 y `art-direction.md`), audio y vibración (§6), cristales, cosméticos, misiones, estadísticas y guardado local (§7), requisitos no funcionales (§8).
@@ -103,7 +103,7 @@ Como jugador, quiero controlar volumen, vibración y efectos visuales, y poder d
 
 ## 3. Reglas de juego
 
-> Toda esta sección depende de **D-01** (mecánica del toque) `[NEEDS CLARIFICATION: D-01]`. Las secciones 3.10 (finalización) y 3.11 (límite de tiempo) dependen además de **D-02**.
+> Esta sección aplica las decisiones D-01 → A (pulso de captura) y D-02 → A (energía + límite de 90 s).
 
 ### 3.1 Sistema de coordenadas
 
@@ -127,7 +127,7 @@ Como jugador, quiero controlar volumen, vibración y efectos visuales, y poder d
 | T06 | `RESUMING` | `PLAYING` | Fin de la cuenta atrás | Continúa la simulación exactamente donde se congeló. |
 | T07 | `RESUMING` | `PAUSED` | Botón Pausa, botón Atrás o pérdida de foco | Cancela la cuenta atrás. |
 | T08 | `PLAYING` | `GAME_OVER` | `E = 0` al final de un paso (§3.14) | Fin de partida por derrota. |
-| T09 | `PLAYING` | `COMPLETED` | `t ≥ session_max_time` al final de un paso, con `E > 0` `[NEEDS CLARIFICATION: D-02]` | Fin de partida por compleción. |
+| T09 | `PLAYING` | `COMPLETED` | `t ≥ session_max_time` al final de un paso, con `E > 0` (D-02 → A) | Fin de partida por compleción. |
 | T10 | `PAUSED` | `ABANDONED` | «Reiniciar» o «Salir al menú» | Partida descartada (FR-GS-006). «Reiniciar» crea a continuación una partida nueva en `PRE_START`. |
 
 - **FR-GS-003** `[P]` En `PAUSED`, `RESUMING`, `GAME_OVER`, `COMPLETED` y `ABANDONED` no avanzan `t`, los orbes, los temporizadores de PRISM ni la dificultad, y los toques en la arena no generan pulsos.
@@ -262,7 +262,7 @@ Como jugador, quiero controlar volumen, vibración y efectos visuales, y poder d
   *Ejemplo (valores por defecto `energy_start = 100`, `energy_error_cost = 35`, `energy_hit_gain = 1`):* tres errores sin aciertos: 100 → 65 → 30 → 0 (fin). Con 10 aciertos entre errores: 100 → 65 → 75 → 40 → 50 → 15 → 25 → 0 (fin al cuarto error).
 - **FR-ENE-002** `[P]` **Estado crítico:** cuando `0 < E ≤ energy_error_cost` (el siguiente error termina la partida), se activa la respuesta de energía crítica (ART-034 y sonido `energy_critical`). Se desactiva cuando `E > energy_error_cost`.
 - **FR-ENE-003** `[M][P]` La partida termina por derrota (`GAME_OVER`) cuando `E = 0` al final de un paso de simulación.
-- **FR-ENE-004** `[M][P]` La partida termina por compleción (`COMPLETED`) cuando `t ≥ session_max_time` al final de un paso con `E > 0`. Si en el mismo paso `E = 0`, prevalece `GAME_OVER`. `[NEEDS CLARIFICATION: D-02]`
+- **FR-ENE-004** `[M][P]` La partida termina por compleción (`COMPLETED`) cuando `t ≥ session_max_time` al final de un paso con `E > 0`. Si en el mismo paso `E = 0`, prevalece `GAME_OVER`. (D-02 → A)
   *Aceptación:* ninguna partida simulada dura más de `session_max_time + sim_step`.
 - **FR-ENE-005** `[P]` Al terminar la partida, los orbes en vuelo se eliminan sin efectos de juego y se detiene el generador.
 
@@ -390,7 +390,7 @@ Como jugador, quiero controlar volumen, vibración y efectos visuales, y poder d
 |-----------|-----------|
 | Puntuación | Entero con separador de miles. |
 | Combo | «×m» y «COMBO c». Oculto si `c = 0` (salvo animación de ruptura). |
-| Tiempo | Tiempo restante `session_max_time − t` en formato `m:ss`, redondeado hacia arriba. `[NEEDS CLARIFICATION: D-02]` |
+| Tiempo | Tiempo restante `session_max_time − t` en formato `m:ss`, redondeado hacia arriba. (D-02 → A) |
 | Botón **Pausa** | T02/T03/T07. |
 | Barra de energía | `E / energy_max`. Estado crítico según FR-ENE-002. |
 | Medidor PRISM | `Q / prism_charge_max`; durante PRISM, tiempo restante de PRISM. |
@@ -587,7 +587,7 @@ La guía verificable completa está en `art-direction.md` (requisitos `ART-NNN`)
 
 ### 8.5 Plataforma y presentación
 
-- **NFR-PLAT-001** `[M][P]` Plataforma objetivo: teléfonos móviles. Android como plataforma principal; iOS `[NEEDS CLARIFICATION: D-03]`.
+- **NFR-PLAT-001** `[M][P]` Plataforma objetivo: teléfonos móviles. Android en v1; iOS queda fuera de v1 (D-03 → A).
 - **NFR-PLAT-002** `[P]` Orientación vertical fija. Relaciones de aspecto soportadas: de 3:4 a 9:21 (ancho/alto entre 0.75 y 0.43). Respeto de las áreas seguras (muescas, barras del sistema).
 - **NFR-PLAT-003** `[P]` Al perder el foco o pasar a segundo plano durante `PLAYING` o `RESUMING`, la partida pasa a `PAUSED` (T03/T07) y se silencia el audio hasta recuperar el foco.
 
@@ -656,3 +656,4 @@ La guía verificable completa está en `art-direction.md` (requisitos `ART-NNN`)
 | Versión | Fecha | Cambio |
 |---------|-------|--------|
 | 0.1.0 | 2026-10-23 | Primer borrador completo para la fase Clarify. |
+| 0.2.0 | 2026-10-23 | Aprobada: decisiones D-01…D-05 resueltas; propuestas aprobadas. Sin cambios de reglas. |

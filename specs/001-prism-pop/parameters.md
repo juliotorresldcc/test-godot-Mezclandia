@@ -1,6 +1,6 @@
 # Catálogo de parámetros: PRISM POP v1
 
-- **Versión:** 0.1.0 (borrador, fase Clarify)
+- **Versión:** 0.1.0 (aprobada el 2026-10-23)
 - **Fecha:** 2026-10-23
 - **Fuente de verdad de:** todos los valores ajustables del juego. `spec.md` define las reglas usando estos nombres; aquí se definen valores, tipos, unidades y rangos.
 - **Estado:** todos los valores son **propuestas `[P]`** salvo indicación. Pendientes de aprobación del propietario y de calibración mediante simulación y pruebas con jugadores.
@@ -99,7 +99,7 @@
 
 | Parámetro | Tipo | Unidad | Defecto | Mín | Máx | Efecto | Dependencias |
 |-----------|------|--------|---------|-----|-----|--------|--------------|
-| `session_max_time` | float | s | 90 | 60 | 180 | Duración máxima (`COMPLETED`). `[NEEDS CLARIFICATION: D-02]` | C12, SC-001 |
+| `session_max_time` | float | s | 90 | 60 | 180 | Duración máxima (`COMPLETED`). (D-02 → A) | C12, SC-001 |
 | `resume_countdown` | float | s (tiempo real) | 1.5 | 0.0 | 3.0 | Cuenta atrás al reanudar. | — |
 | `end_sequence_duration` | float | s (tiempo real) | 1.0 | 0.5 | 2.0 | Animación de fin antes de Resultados. | — |
 

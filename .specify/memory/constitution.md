@@ -1,7 +1,7 @@
 # Constitución del proyecto PRISM POP
 
 - **Versión:** 1.0.0
-- **Ratificada:** pendiente de aprobación del propietario del producto
+- **Ratificada:** 2026-10-23 (ver `specs/001-prism-pop/clarifications.md` §7)
 - **Última modificación:** 2026-10-23
 
 Esta constitución gobierna todo el trabajo sobre PRISM POP. Ante un conflicto entre este documento y cualquier otro artefacto, prevalece este documento. Ante un conflicto entre la especificación aprobada y el código, prevalece la especificación.
