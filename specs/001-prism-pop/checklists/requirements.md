@@ -2,7 +2,7 @@
 
 - **Fecha:** 2026-10-23 · **Fase:** Clarify, ronda 1
 - **Artefactos revisados:** `spec.md` 0.1.0, `parameters.md` 0.1.0, `art-direction.md` 0.1.0, `clarifications.md` 0.1.0
-- **Evidencia automática:** `python3 tools/spec_lint.py` → APROBADO (187 requisitos: 122 FR, 19 NFR, 7 SC, 39 ART; 64 parámetros, todos citados; 0 IDs duplicados; 0 parámetros sin definir). `python3 tools/palette_check.py` → APROBADO (ver `palette-report.txt`).
+- **Evidencia automática:** `python3 tools/spec_lint.py` → APROBADO (187 requisitos: 122 FR, 19 NFR, 7 SC, 39 ART; 64 «parámetros» — cifra errónea: incluía 8 cosméticos; corregido después a 56; 0 IDs duplicados; 0 parámetros sin definir). `python3 tools/palette_check.py` → APROBADO (ver `palette-report.txt`).
 
 Marcado: `[x]` cumplido con evidencia · `[ ]` no cumplido · `[~]` cumplido en borrador, pendiente de aprobación del propietario.
 
@@ -49,3 +49,7 @@ Marcado: `[x]` cumplido con evidencia · `[ ]` no cumplido · `[~]` cumplido en 
 ## Resultado
 
 **La fase Clarify NO supera su puerta de salida.** Bloqueantes: D-01, D-02 (críticas), D-03, D-04 (altas) y la aprobación de las propuestas. No se inicia la fase Plan.
+
+## Actualización 2026-10-23 (cierre de Clarify)
+
+Decisiones D-01…D-05, propuestas M-01…M-13 y B-01…B-05 resueltas (`clarifications.md` §7). Marcas `[NEEDS CLARIFICATION]`: 0. La puerta de Clarify queda superada.

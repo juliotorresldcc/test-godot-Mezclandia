@@ -6,7 +6,7 @@
 
 | Comprobación | Resultado |
 |--------------|-----------|
-| `tools/spec_lint.py` | APROBADO: 187 requisitos, 0 duplicados, 64 parámetros definidos y citados |
+| `tools/spec_lint.py` | APROBADO: 187 requisitos, 0 duplicados. (La cifra «64 parámetros» registrada inicialmente incluía por error las 8 filas de cosméticos; el script se corrigió y son 56 parámetros.) |
 | `tools/palette_check.py` | APROBADO (ver `checklists/palette-report.txt`) |
 | `tools/trace_check.py` (requisitos → tareas) | **Primera ejecución: FALLIDO**, 31 requisitos sin tarea (rendimiento, accesibilidad, ART-002…004, ART-070, FR-SEQ-005, FR-FAIR-003/004, FR-ARENA-*, FR-STAT-011, FR-RG-001, NFR-MNT-002), además de 2 defectos del propio script (no interpretaba `002/003` ni los IDs `SC-NNN`). Corregido en `tasks.md` (nueva tarea T23 de rendimiento y ampliación de T09, T12, T13, T16, T18, T20) y en el script. **Ejecución final: APROBADO, 187/187.** |
 

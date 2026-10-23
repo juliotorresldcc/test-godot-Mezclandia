@@ -120,7 +120,7 @@ Duraciones en segundos. «Suavizado» = curva de interpolación.
 | ART-032 | Aviso de fin de PRISM | El núcleo pulsa su brillo ±20 % a 2 Hz (no es un destello) y el medidor PRISM parpadea a 2 Hz | `prism_warning_time` | senoidal |
 | ART-033 | Subida de nivel de combo | Texto «×m» escala 1.0 → 1.3 → 1.0 | 0.20 | salida elástica suave |
 | ART-034 | Energía crítica | Halo del núcleo pulsa a 1 Hz; la barra de energía cambia a `text.primary` | continuo | senoidal |
-| ART-035 | Nuevo color | Texto «NUEVO COLOR» bajo la banda superior + estrella violeta | `new_color_notice_duration` | entrada/salida |
+| ART-035 | Nuevo color | Texto «NUEVO COLOR» en violeta en la banda superior, bajo el tiempo (CR-003) | `new_color_notice_duration` | entrada/salida |
 | ART-036 | Error de color | El orbe se desatura a blanco (0.08 s) y se rompe en 6 fragmentos (0.30 s); sacudida de pantalla de amplitud 6 dp decreciente (0.20 s); la barra de energía muestra un único destello blanco | 0.38 total | salida cuadrática |
 | ART-037 | Omisión | El orbe se aplasta contra el núcleo; el núcleo se desplaza en «glitch» RGB 3 dp; onda en la zona; mismo destello único de la barra de energía | 0.25 | lineal |
 | ART-038 | Pulso vacío | Onda tenue de alfa 0.15 en la zona | 0.15 | salida |

@@ -244,3 +244,53 @@ func test_ui_07_load_error_dialog() -> void:
 	await _press("DialogButton0")
 	check(gm.find_child("Dialog", true, false) == null, "Aceptar cierra")
 	await _finish()
+
+
+func test_ui_08_quit_during_prism_restores_background() -> void:
+	await _start()
+	await _press("PlayButton")
+	var session: GameSession = _game().session
+	_game().tap()
+	session.prism.charge = session.config.prism_charge_max
+	session.step()
+	check(gm.background.prism_active, "fondo PRISM activo")
+	await _press("PauseButton")
+	await _press("QuitButton")
+	await frames(2)
+	check(not gm.background.prism_active, "fondo restablecido al salir durante PRISM")
+	await _finish()
+
+
+func test_inp_05_space_key_is_a_tap() -> void:
+	await _start()
+	await _press("PlayButton")
+	var key := InputEventKey.new()
+	key.pressed = true
+	key.keycode = KEY_SPACE
+	_game()._unhandled_input(key)
+	check_eq(_game().session.state, GameSession.State.PLAYING, "Espacio inicia la partida (FR-INP-006)")
+	await _finish()
+
+
+func test_ui_09_transition_blocks_input() -> void:
+	await _start()
+	gm.instant_transitions = false
+	gm.show_collection()
+	check(gm._blocker.visible, "bloqueo de toques durante la transición (FR-UX-002)")
+	await tree.create_timer(GameManager.TRANSITION_SECONDS + 0.15).timeout
+	check(not gm._blocker.visible, "bloqueo retirado al terminar")
+	await _finish()
+
+
+func test_rg_02_break_reminder() -> void:
+	await _start()
+	var interval: float = gm.config.break_reminder_interval * 60.0
+	gm.play_seconds_since_launch = interval - 1.0
+	check_eq(gm._break_reminder_minutes(), 0, "antes de 30 min no hay aviso")
+	gm.play_seconds_since_launch = interval + 5.0
+	check_eq(gm._break_reminder_minutes(), 30, "al superar 30 min: aviso con los minutos")
+	check_eq(gm._break_reminder_minutes(), 0, "una sola vez por intervalo")
+	gm.progression.profile.settings.break_reminder = false
+	gm.play_seconds_since_launch = 2.0 * interval + 5.0
+	check_eq(gm._break_reminder_minutes(), 0, "desactivado en Ajustes")
+	await _finish()

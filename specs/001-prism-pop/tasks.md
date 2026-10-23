@@ -29,3 +29,22 @@
 | T21 | NFR-PLAT-001, NFR-PRIV-001 | Preset de exportación Android e instrucciones | `export_presets.cfg`, `docs/export-android.md` | T18 | Preset válido para el editor; APK ⊘ sin SDK | Validación del preset (si es posible) |
 | T23 | NFR-PERF-001…005, SC-003 | Escenario de estrés con medición de tiempos de fotograma y memoria en el entorno (indicativo) y procedimiento para dispositivo | `tests/perf/stress.gd`, `docs/perf-device.md` | T17 | Medición registrada; verificación en dispositivo ⊘ (sin dispositivo) | PERF-01 |
 | T22 | Todos | Matriz de trazabilidad, informe de pruebas, convergencia | `traceability.md`, `test-report.md` | T01…T21, T23 | Cada requisito con prueba y evidencia o excepción documentada | `tools/trace_check.py` |
+
+## Estado de las tareas (2026-10-23)
+
+| Tarea | Estado | Evidencia |
+|-------|--------|-----------|
+| T01 | ☑ | Importación headless sin errores |
+| T02 | ☑ | TEST-CFG-01/02; `check_sync.py` APROBADO |
+| T03 | ☑ | Prueba de control: código de salida 1 ante un fallo y ante un error de script |
+| T04–T09 | ☑ | test-report §1 (TEST-DIF/SCO/SEQ/CMB/PRM/SPN/GS/RES/INP/ENE/SIM/FAIR) |
+| T10 | ☑ | test-report §2 (1 000 partidas por bot; 14 000 con invariantes) |
+| T11–T12 | ☑ | TEST-PRG/MIS/SAV |
+| T13 | ☑ | TEST-STR-01, TEST-LAY-01/02, `check_sync.py`; CR-001 aplicado |
+| T14–T15 | ☑ | TEST-AUD-01…03, TEST-HAP-01 (la escucha y la vibración reales quedan pendientes de dispositivo) |
+| T16–T18 | ☑ | TEST-UI-01…09, TEST-VIS-01/02; capturas reales |
+| T19 | ☑ | TEST-UI-*, TEST-LAY-03, TEST-RSC-01 |
+| T20 | ◐ | Capturas y lista objetiva hechas (`visual-review.md`); rúbrica del propietario y SC-004 pendientes |
+| T21 | ⊘ | Preset validado; APK bloqueado sin SDK de Android (`docs/export-android.md`) |
+| T22 | ☑ | `traceability.md`, `test-report.md`; `trace_check.py --tests` APROBADO |
+| T23 | ◐ | Medición indicativa registrada; verificación en dispositivo pendiente (`docs/perf-device.md`) |

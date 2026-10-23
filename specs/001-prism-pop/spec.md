@@ -1,7 +1,7 @@
 # Especificación funcional: PRISM POP v1
 
 - **Feature:** `001-prism-pop`
-- **Versión del documento:** 0.2.1 (aprobada)
+- **Versión del documento:** 0.2.2 (aprobada)
 - **Fecha:** 2026-10-23
 - **Estado:** APROBADA el 2026-10-23 (ver `clarifications.md` §7).
 - **Documentos asociados (fuentes de verdad propias):**
@@ -324,7 +324,7 @@ Como jugador, quiero controlar volumen, vibración y efectos visuales, y poder d
 - **FR-FAIR-003** `[P]` El indicador «SIGUIENTE» y el color del núcleo son siempre correctos (invariante FR-SEQ-005).
 - **FR-FAIR-004** `[P]` El objetivo no cambia mientras un orbe está en zona salvo por el consumo de ese mismo orbe (consecuencia de FR-FAIR-001 y FR-SEQ-002).
 - **FR-FAIR-005** `[P]` **Validación de configuración:** al cargar la configuración se comprueban todas las restricciones de `parameters.md` §3. Si alguna falla, en compilaciones de depuración la partida no se inicia y se muestra el error; las compilaciones de publicación no pueden generarse con una configuración inválida (comprobación automática en la batería de pruebas).
-- **FR-FAIR-006** `[P]` Ningún elemento de la interfaz se superpone a la arena (círculo de radio `1.05 R`) en ninguna de las resoluciones de referencia (`art-direction.md` §4).
+- **FR-FAIR-006** `[P]` Durante `PLAYING`, ningún elemento de la interfaz se superpone a la arena (círculo de radio `1.05 R`) en ninguna de las resoluciones de referencia (`art-direction.md` §4). En `PRE_START`, `RESUMING` y la secuencia de fin pueden superponerse textos informativos (CR-003).
 
 ### 3.16 Estadísticas de la partida
 
@@ -658,3 +658,4 @@ La guía verificable completa está en `art-direction.md` (requisitos `ART-NNN`)
 | 0.1.0 | 2026-10-23 | Primer borrador completo para la fase Clarify. |
 | 0.2.0 | 2026-10-23 | Aprobada: decisiones D-01…D-05 resueltas; propuestas aprobadas. Sin cambios de reglas. |
 | 0.2.1 | 2026-10-23 | Aclaración de FR-MIS-005 (CR-002). |
+| 0.2.2 | 2026-10-23 | Aclaración de FR-FAIR-006 (CR-003). |

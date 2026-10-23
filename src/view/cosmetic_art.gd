@@ -22,7 +22,9 @@ static func draw_core_skin(canvas: CanvasItem, skin: String, center: Vector2, ra
 static func draw_trail(canvas: CanvasItem, skin: String, at: Vector2, outward: Vector2, orb_radius: float, length: float, color: Color, alpha: float, time: float, reduce_effects: bool) -> void:
 	match skin:
 		"trail_default":
-			canvas.draw_line(at + outward * orb_radius, at + outward * (orb_radius + length * 0.5), Palette.alpha(color, 0.25 * alpha), orb_radius * 0.5, true)
+			var side: Vector2 = outward.orthogonal() * orb_radius * 0.6
+			canvas.draw_polygon(PackedVector2Array([at + side, at - side, at + outward * (orb_radius + length * 0.6)]),
+				PackedColorArray([Palette.alpha(color, 0.3 * alpha), Palette.alpha(color, 0.3 * alpha), Palette.alpha(color, 0.0)]))
 		"trail_spark":
 			for i: int in 4:
 				var offset: float = orb_radius + length * (i + 1) / 4.0

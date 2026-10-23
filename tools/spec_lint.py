@@ -23,7 +23,8 @@ ART = FEATURE / "art-direction.md"
 PARAMS = FEATURE / "parameters.md"
 
 REQ_DEF = re.compile(r"^(?:- )?\*\*((?:FR|NFR|SC)-[A-Z0-9]+(?:-[A-Z0-9]+)*-?\d*)\*\*|^\| (ART-\d{3}) \||^- \*\*(ART-\d{3})\*\*", re.M)
-PARAM_DEF = re.compile(r"^\| `([a-z][a-z0-9_]*)` \|", re.M)
+# Filas de parámetros; se excluye la tabla de cosméticos (columna «Categoría»).
+PARAM_DEF = re.compile(r"^\| `([a-z][a-z0-9_]*)` \| (?!Núcleo|Estela)", re.M)
 CODE_SPAN = re.compile(r"`([^`\n]+)`")
 # Excluye tokens de color con punto (text.on_accent) y nombres de archivo (palette_check.py).
 SNAKE = re.compile(r"(?<![\w./])([a-z][a-z0-9]*(?:_[a-z0-9]+)+)\b(?!\.\w)")

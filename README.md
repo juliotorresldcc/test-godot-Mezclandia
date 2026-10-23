@@ -1,39 +1,51 @@
 # PRISM POP
 
-Arcade híbrido hypercasual para móviles: partidas de 30 a 90 segundos, control de un toque, orbes de colores, combos, modo PRISM y cosméticos. Se construye con Godot mediante **Spec-Driven Development (SDD)**.
+Arcade híbrido hypercasual para móviles: partidas de 30 a 90 segundos, control de un toque, orbes de colores, combos, modo PRISM y cosméticos. Hecho con **Godot 4.7.2** mediante **Spec-Driven Development (SDD)**.
+
+**Cómo se juega:** el núcleo muestra un color. Toca la pantalla cuando un orbe de ese color esté dentro del anillo; deja pasar los demás. Encadena aciertos para multiplicar la puntuación y llenar el modo PRISM.
 
 ## Estado
 
-**Fase actual: Clarify (ronda 1).** Todavía no hay proyecto Godot ni código de juego: según la constitución, la implementación no empieza hasta que la especificación esté aprobada y las decisiones críticas resueltas.
+| Fase | Estado |
+|------|--------|
+| Constitución, Specify, Clarify | Superadas (decisiones en `specs/001-prism-pop/clarifications.md` §7) |
+| Plan, Design, Tasks, Analyze | Superadas |
+| Implement / Verify | Alcance implementado; 97 pruebas automáticas, simulaciones y comprobaciones documentales aprobadas |
+| Converge | Pendiente solo de lo que exige dispositivo, jugadores o tu aprobación (ver abajo) |
 
-Decisiones pendientes del propietario: ver `specs/001-prism-pop/clarifications.md` §3–§5.
+**Pendiente fuera de este entorno:** exportar el APK (falta el SDK de Android), medir el rendimiento y la vibración en un dispositivo, pruebas con jugadores y tu rúbrica de revisión visual. Detalle en `specs/001-prism-pop/test-report.md` §5.
+
+## Ejecución
+
+```sh
+godot --path .                      # jugar en escritorio (clic o Espacio = toque; Esc = Atrás)
+godot --path . --editor             # abrir en el editor
+```
+
+## Comprobaciones
+
+```sh
+tools/check_all.sh                  # documentos + sincronía código↔documentos + trazabilidad + 97 pruebas (≈ 15 s)
+tools/check_all.sh --sim 1000       # + simulaciones SC-001/SC-002/E17 (≈ 75 s)
+tools/check_all.sh --visual         # + capturas reales en docs/visual (requiere xvfb-run)
+```
+
+## Exportación
+
+Android: `docs/export-android.md`. Verificación en dispositivo: `docs/perf-device.md`.
 
 ## Estructura
 
 | Ruta | Contenido |
 |------|-----------|
-| `.specify/memory/constitution.md` | Constitución: principios, flujo SDD, puertas de fase, política de cambios, revisión y validación. |
-| `specs/001-prism-pop/spec.md` | Especificación funcional (fuente de verdad de las reglas). |
-| `specs/001-prism-pop/parameters.md` | Catálogo de parámetros ajustables, restricciones, cosméticos, misiones y bots de verificación. |
-| `specs/001-prism-pop/art-direction.md` | Guía de dirección artística verificable y procedimiento de revisión visual. |
-| `specs/001-prism-pop/clarifications.md` | Hallazgos, decisiones abiertas, propuestas y registro de cambios. |
-| `specs/001-prism-pop/risks.md` | Registro de riesgos. |
-| `specs/001-prism-pop/checklists/` | Checklist de calidad de la especificación e informe de paleta. |
-| `specs/001-prism-pop/assets/moodboard.svg` | Moodboard esquemático generado (paleta, símbolos, maqueta de disposición). |
-| `tools/palette_check.py` | Verifica contraste WCAG y distinción de colores (incluida simulación de daltonismo) leyendo la guía de arte. |
-| `tools/spec_lint.py` | Verifica la coherencia entre documentos: IDs únicos y parámetros definidos. |
-
-## Comprobaciones
-
-Requieren solo Python 3 (biblioteca estándar):
-
-```sh
-python3 tools/spec_lint.py
-python3 tools/palette_check.py --report specs/001-prism-pop/checklists/palette-report.txt --svg specs/001-prism-pop/assets/moodboard.svg
-```
-
-## Herramientas
-
-- **GitHub Spec Kit:** no instalado. El flujo SDD se sigue manualmente con su estructura de directorios (decisión D-05).
-- **Godot:** no instalado en el entorno. Versión propuesta: 4.7.2-stable (decisión D-03).
-- Las instrucciones de ejecución y exportación se añadirán en la fase Plan.
+| `.specify/memory/constitution.md` | Constitución: principios, puertas de fase, políticas de cambio, revisión y validación |
+| `specs/001-prism-pop/` | `spec.md` (reglas), `parameters.md` (valores), `art-direction.md` (arte), `clarifications.md` (decisiones y CR), `plan.md`, `design.md`, `tasks.md`, `analysis.md`, `traceability.md`, `test-report.md`, `visual-review.md`, `risks.md` |
+| `docs/adr/` | Decisiones de arquitectura |
+| `src/core/` | Reglas de juego puras y deterministas (`GameSession` y colaboradores) |
+| `src/progression/` | Perfil, catálogos, progresión y guardado |
+| `src/config/` | `GameConfig`: los 56 parámetros ajustables |
+| `src/ui/`, `src/view/` | Pantallas, HUD, arena y efectos |
+| `src/services/` | Audio y vibración (autoloads) |
+| `assets/` | Fuentes OFL (Orbitron, Exo 2) y audio generado por `tools/gen_audio.py` |
+| `tests/` | Pruebas (`unit/`), simulaciones (`sim/`), capturas (`visual/`), rendimiento (`perf/`) |
+| `tools/` | Comprobaciones y generadores |

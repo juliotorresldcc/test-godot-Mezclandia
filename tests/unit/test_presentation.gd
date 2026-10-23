@@ -135,3 +135,11 @@ func _files(directory: String, extension: String) -> PackedStringArray:
 	for sub: String in DirAccess.get_directories_at(directory):
 		result.append_array(_files(directory.path_join(sub), extension))
 	return result
+
+
+func test_fmt_01_time_and_numbers() -> void:
+	check_eq(UiKit.format_time(74.4), "1:14", "duración hacia abajo")
+	check_eq(UiKit.format_time(74.4, true), "1:15", "tiempo restante hacia arriba")
+	check_eq(UiKit.format_time(90.0, true), "1:30", "inicio de partida")
+	check_eq(UiKit.format_int(12450), "12 450", "separador de miles")
+	check_eq(UiKit.format_int(999), "999", "sin separador")

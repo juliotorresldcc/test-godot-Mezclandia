@@ -63,6 +63,11 @@ func _ready() -> void:
 	_refresh_hud()
 
 
+## Al salir de la partida (fin, abandono o reinicio) el fondo vuelve a su tono normal.
+func _exit_tree() -> void:
+	_set_background_prism(false)
+
+
 func _physics_process(_delta: float) -> void:
 	if session.state == GameSession.State.PLAYING:
 		session.step()
@@ -214,7 +219,7 @@ func _refresh_hud() -> void:
 		_combo_label.text = tr("HUD_COMBO") % combo
 		_combo_label.modulate.a = 1.0
 		_combo_label.position.y = _multiplier_label.position.y + layout.px(32)
-	_time_label.text = UiKit.format_time(session.config.session_max_time - session.t)
+	_time_label.text = UiKit.format_time(session.config.session_max_time - session.t, true)
 	_energy_bar.fraction = float(session.energy) / session.config.energy_max
 	_energy_bar.fill_color = Palette.TEXT_PRIMARY if session.is_energy_critical() else Palette.UI_ACCENT
 	if session.prism.active:

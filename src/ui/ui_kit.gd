@@ -137,8 +137,9 @@ static func format_int(value: int) -> String:
 	return ("-" if value < 0 else "") + NBSP.join(groups)
 
 
-static func format_time(seconds: float) -> String:
-	var total: int = ceili(maxf(seconds, 0.0) - 1e-6)
+## m:ss. round_up para el tiempo restante del HUD (FR-UX-030); hacia abajo para duraciones.
+static func format_time(seconds: float, round_up: bool = false) -> String:
+	var total: int = ceili(maxf(seconds, 0.0) - 1e-6) if round_up else floori(maxf(seconds, 0.0) + 1e-6)
 	return "%d:%02d" % [total / 60, total % 60]
 
 

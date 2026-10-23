@@ -31,6 +31,7 @@ var _ripple: float = 0.0
 var _prism_wave: float = -1.0
 var _end_time: float = -1.0
 var _center: Vector2
+var _ring_mesh: ArrayMesh
 
 
 func setup(game_session: GameSession, game_layout: Layout) -> void:
@@ -163,9 +164,7 @@ func _draw() -> void:
 	draw_arc(Vector2.ZERO, config.spawn_radius * radius, 0, TAU, 128, Palette.alpha(Palette.TEXT_PRIMARY, 0.08 * fade), layout.px(1), true)
 	# Zona de captura (ART-012)
 	var occupied: bool = session.orb_in_zone() != null
-	var zone_mid: float = (config.zone_inner_radius + config.zone_outer_radius) / 2.0 * radius
-	var zone_width: float = (config.zone_outer_radius - config.zone_inner_radius) * radius
-	draw_arc(Vector2.ZERO, zone_mid, 0, TAU, 128, Palette.alpha(Palette.TEXT_PRIMARY, (0.08 if occupied else 0.04) * fade), zone_width, true)
+	_draw_ring(config.zone_inner_radius * radius, config.zone_outer_radius * radius, Palette.alpha(Palette.TEXT_PRIMARY, (0.08 if occupied else 0.04) * fade))
 	var border_alpha: float = (0.60 if occupied else 0.25) * fade
 	if _ripple > 0.0:
 		border_alpha = maxf(border_alpha, 0.15 + 0.45 * _ripple / 0.15)
@@ -184,6 +183,29 @@ func _draw() -> void:
 		var at: Vector2 = popup["position"] + Vector2(0, -0.08 * radius * age / 0.5)
 		draw_string(font, at + Vector2(-layout.px(24), 0), popup["text"], HORIZONTAL_ALIGNMENT_CENTER, layout.px(48), font_size, Palette.alpha(Palette.TEXT_PRIMARY, alpha))
 	_draw_next(fade)
+
+
+## Corona rellena sin costura: un arco grueso cerrado solapa sus extremos y deja una línea más opaca.
+## La malla se construye una vez (los radios no cambian durante la partida) para no triangular en cada fotograma.
+func _draw_ring(inner: float, outer: float, color: Color) -> void:
+	if _ring_mesh == null:
+		_ring_mesh = _build_ring_mesh(inner, outer)
+	draw_mesh(_ring_mesh, null, Transform2D.IDENTITY, color)
+
+
+static func _build_ring_mesh(inner: float, outer: float) -> ArrayMesh:
+	const SEGMENTS: int = 96
+	var vertices := PackedVector2Array()
+	for i: int in SEGMENTS:
+		var a: Vector2 = Vector2.from_angle(TAU * i / SEGMENTS)
+		var b: Vector2 = Vector2.from_angle(TAU * (i + 1) / SEGMENTS)
+		vertices.append_array([a * inner, a * outer, b * outer, a * inner, b * outer, b * inner])
+	var arrays: Array = []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	return mesh
 
 
 func _draw_orb(orb: Orb, fade: float) -> void:
