@@ -1,0 +1,53 @@
+; Archivo de configuración del motor. Decisiones en specs/001-prism-pop/plan.md §2.
+
+config_version=5
+
+[application]
+
+config/name="PRISM POP"
+config/description="Arcade hypercasual de un toque: captura los orbes del color del núcleo."
+config/version="1.0.0"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
+config/quit_on_go_back=false
+boot_splash/bg_color=Color(0.027451, 0.0431373, 0.121569, 1)
+boot_splash/show_image=false
+
+[autoload]
+
+AudioManager="*res://src/services/audio_manager.gd"
+Haptics="*res://src/services/haptics.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=540
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[input_devices]
+
+pointing/emulate_mouse_from_touch=true
+
+[internationalization]
+
+locale/fallback="es"
+
+[physics]
+
+common/physics_ticks_per_second=60
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.027451, 0.0431373, 0.121569, 1)
