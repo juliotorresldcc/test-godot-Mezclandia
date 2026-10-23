@@ -45,6 +45,6 @@
 | T16–T18 | ☑ | TEST-UI-01…09, TEST-VIS-01/02; capturas reales |
 | T19 | ☑ | TEST-UI-*, TEST-LAY-03, TEST-RSC-01 |
 | T20 | ◐ | Capturas y lista objetiva hechas (`visual-review.md`); rúbrica del propietario y SC-004 pendientes |
-| T21 | ⊘ | Preset validado; APK bloqueado sin SDK de Android (`docs/export-android.md`) |
+| T21 | ◐ | APK de depuración generado y verificado (`docs/export-android.md` §1 bis); instalación en dispositivo y build de release pendientes |
 | T22 | ☑ | `traceability.md`, `test-report.md`; `trace_check.py --tests` APROBADO |
 | T23 | ◐ | Medición indicativa registrada; verificación en dispositivo pendiente (`docs/perf-device.md`) |

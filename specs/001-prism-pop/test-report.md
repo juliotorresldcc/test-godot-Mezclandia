@@ -168,7 +168,7 @@ PERF memoria estática: 45.1 MB; objetos: 1740; nodos: 39
 |--------|--------|---------------|
 | NFR-PERF-001…005, SC-003 | Sin dispositivo Android | `docs/perf-device.md` |
 | FR-HAP-001 (vibración real) | Sin dispositivo | `docs/perf-device.md` §3 |
-| NFR-PLAT-001 (APK) | `dl.google.com` bloqueado: sin SDK de Android; faltan las plantillas 4.7.2 | `docs/export-android.md` (salida del intento en §1 de ese documento) |
+| NFR-PLAT-001 (instalación del APK) | El APK de depuración **se generó y verificó** (firma v2/v3, manifiesto) con herramientas de AOSP de Ubuntu; falta instalarlo en un dispositivo | `docs/export-android.md` §1 bis |
 | FR-AUD-002 (mezcla por capas) | Controlador de audio nulo | Escucha en dispositivo |
 | SC-004, NFR-A11Y-006 | Requiere jugadores | `docs/perf-device.md` §4 |
 

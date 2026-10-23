@@ -141,7 +141,7 @@
 | NFR-SEC-001 | spec.md | 2.9 | T12 | TEST-SAV-05 | ✅ Aprobada — test-report §1 |
 | FR-RG-001 | spec.md | — | T18 | Búsqueda de monetización/anuncios (0 coincidencias); misiones sin caducidad (FR-MIS-007) | ✅ Aprobada — test-report §1 |
 | FR-RG-002 | spec.md | 2.11 | T18 | TEST-RG-02 | ✅ Aprobada — test-report §1 |
-| NFR-PLAT-001 | spec.md | ADR 0009 | T21 | Preset Android validado por Godot; APK no generable sin SDK | ⏳ Pendiente — requiere dispositivo (test-report §5) |
+| NFR-PLAT-001 | spec.md | ADR 0009 | T21 | APK de depuración generado; `apksigner verify` y `aapt dump badging` correctos | ◐ APK verificado; instalación en dispositivo pendiente |
 | NFR-PLAT-002 | spec.md | 2.11 | T01 | project.godot (vertical, expand), TEST-LAY-01 | ✅ Aprobada — test-report §1 |
 | NFR-PLAT-003 | spec.md | 2.11 | T17 | TEST-UI-06 | ✅ Aprobada — test-report §1 |
 | NFR-MNT-001 | spec.md | 2.1 | T02 | tools/check_sync.py (56 parámetros) | ✅ Aprobada — test-report §1 |

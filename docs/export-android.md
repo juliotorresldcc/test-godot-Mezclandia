@@ -15,6 +15,30 @@ Unable to find Android SDK build-tools' apksigner command. Please check in the A
 
 Godot reconoce y valida el preset `Android` de `export_presets.cfg`; solo faltan las herramientas externas.
 
+## 1 bis. Exportación realizada en el entorno (2026-10-23)
+
+Con `dl.google.com` bloqueado, se usaron las herramientas oficiales de AOSP empaquetadas por Ubuntu (`apt-get install apksigner adb zipalign aapt`) y una estructura mínima de SDK:
+
+```
+/opt/android-sdk/platform-tools/adb            -> /usr/bin/adb (34.0.4)
+/opt/android-sdk/build-tools/34.0.0/apksigner  -> /usr/bin/apksigner
+/opt/android-sdk/build-tools/34.0.0/zipalign   -> /usr/bin/zipalign
+```
+
+Plantillas 4.7.2 descargadas de la publicación oficial en GitHub. Rutas configuradas en `~/.config/godot/editor_settings-4.7.tres` (`android_sdk_path`, `java_sdk_path` = OpenJDK 21, keystore de depuración que genera Godot).
+
+Resultado de `godot --headless --path . --export-debug Android build/prism-pop-debug.apk`:
+
+| Comprobación | Resultado |
+|--------------|-----------|
+| Tamaño | 58,6 MB (≤ 80 MB, NFR-PERF-005) |
+| SHA-256 | `6cb2cc9453d4dd5464e267bd44a64f2a541b9598e811250fbbcff93a8dd2f43b` |
+| `apksigner verify` | Verifica: esquemas v2 y v3; certificado de depuración de Godot |
+| `aapt dump badging` | `com.prismpop.game` 1.0.0 (code 1); minSdk 24; targetSdk 36; solo `VIBRATE`; `screenOrientation` vertical; ABI arm64-v8a y armeabi-v7a; actividad lanzadora presente |
+| Contenido | Sin archivos de `tests/`, `tools/`, `specs/` ni `docs/` |
+
+Es una compilación de **depuración**: firmada con el keystore de depuración (instalable directamente, no apta para Google Play) y con la etiqueta de semilla visible (FR-SIM-003). Para publicar, genera tu propio keystore de release y usa `--export-release`.
+
 ## 2. Requisitos
 
 | Elemento | Versión |

@@ -13,7 +13,9 @@ Arcade híbrido hypercasual para móviles: partidas de 30 a 90 segundos, control
 | Implement / Verify | Alcance implementado; 97 pruebas automáticas, simulaciones y comprobaciones documentales aprobadas |
 | Converge | Pendiente solo de lo que exige dispositivo, jugadores o tu aprobación (ver abajo) |
 
-**Pendiente fuera de este entorno:** exportar el APK (falta el SDK de Android), medir el rendimiento y la vibración en un dispositivo, pruebas con jugadores y tu rúbrica de revisión visual. Detalle en `specs/001-prism-pop/test-report.md` §5.
+**APK de depuración:** `build/prism-pop-debug.apk` (se genera con `godot --headless --path . --export-debug Android build/prism-pop-debug.apk`; ver `docs/export-android.md`).
+
+**Pendiente fuera de este entorno:** instalarlo en un dispositivo, medir el rendimiento y la vibración en un dispositivo, pruebas con jugadores y tu rúbrica de revisión visual. Detalle en `specs/001-prism-pop/test-report.md` §5.
 
 ## Ejecución
 
