@@ -1,7 +1,7 @@
 # Especificación funcional: PRISM POP v1
 
 - **Feature:** `001-prism-pop`
-- **Versión del documento:** 0.2.0 (aprobada)
+- **Versión del documento:** 0.2.1 (aprobada)
 - **Fecha:** 2026-10-23
 - **Estado:** APROBADA el 2026-10-23 (ver `clarifications.md` §7).
 - **Documentos asociados (fuentes de verdad propias):**
@@ -534,7 +534,7 @@ La guía verificable completa está en `art-direction.md` (requisitos `ART-NNN`)
 - **FR-MIS-002** `[P]` Cada plantilla tiene nivel `k` = número de veces que se ha reclamado una misión de esa plantilla, limitado a `mission_tier_cap`. El objetivo y la recompensa se calculan con las fórmulas de la plantilla al asignar la misión y no cambian después.
 - **FR-MIS-003** `[P]` Progreso: las misiones «en una partida» toman el mejor valor de una sola partida desde la asignación; las misiones «acumuladas» suman desde la asignación. Solo cuentan partidas terminadas en `GAME_OVER` o `COMPLETED`. El progreso se evalúa al final de cada partida.
 - **FR-MIS-004** `[P]` Una misión pasa a «Completada» cuando progreso ≥ objetivo. El progreso mostrado se limita al objetivo.
-- **FR-MIS-005** `[P]` Al reclamar, el hueco se rellena con una plantilla elegida de forma uniforme entre las que no están activas, con el generador del perfil (semilla guardada en el perfil para que el resultado sea reproducible).
+- **FR-MIS-005** `[P]` Al reclamar, el hueco se rellena con una plantilla elegida de forma uniforme entre las que no ocupan los **otros** huecos (la reclamada puede repetirse con su nivel aumentado; CR-002), con el generador del perfil (semilla y estado guardados en el perfil para que el resultado sea reproducible).
 - **FR-MIS-006** `[P]` Las misiones iniciales del perfil nuevo son fijas: `M_HITS_SESSION`, `M_COMBO`, `M_SESSIONS`, todas con `k = 0`.
 - **FR-MIS-007** `[M]` Las misiones no tienen caducidad, temporizadores diarios ni penalizaciones por no jugar (FR-RG-001).
 
@@ -657,3 +657,4 @@ La guía verificable completa está en `art-direction.md` (requisitos `ART-NNN`)
 |---------|-------|--------|
 | 0.1.0 | 2026-10-23 | Primer borrador completo para la fase Clarify. |
 | 0.2.0 | 2026-10-23 | Aprobada: decisiones D-01…D-05 resueltas; propuestas aprobadas. Sin cambios de reglas. |
+| 0.2.1 | 2026-10-23 | Aclaración de FR-MIS-005 (CR-002). |

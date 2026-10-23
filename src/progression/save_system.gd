@@ -57,7 +57,11 @@ func save(profile: Profile) -> bool:
 
 
 func _read(text: String) -> Profile:
-	var data: Variant = JSON.parse_string(text)
+	# JSON.parse devuelve el código de error sin registrarlo: un archivo corrupto es un caso previsto.
+	var json := JSON.new()
+	if json.parse(text) != OK:
+		return null
+	var data: Variant = json.data
 	if not data is Dictionary:
 		return null
 	var version: Variant = data.get("schema_version")

@@ -66,6 +66,11 @@ func play(id: String, pitch_semitones: float = 0.0) -> bool:
 	return true
 
 
+func stop_all_sfx() -> void:
+	for voice: AudioStreamPlayer in _voices:
+		voice.stop()
+
+
 func play_menu_music() -> void:
 	_start_layers(["menu"])
 

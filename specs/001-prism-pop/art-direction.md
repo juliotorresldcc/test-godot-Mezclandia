@@ -1,6 +1,6 @@
 # Guía de dirección artística: PRISM POP v1
 
-- **Versión:** 0.1.0 (aprobada el 2026-10-23)
+- **Versión:** 0.2.0 (aprobada el 2026-10-23; CR-001 aplicado)
 - **Fecha:** 2026-10-23
 - **Estado:** propuesta `[P]` completa. La identidad general es `[M]` (mandato); los valores concretos requieren aprobación y revisión visual (§9).
 - **Fuente de verdad de:** paleta, símbolos, proporciones, tipografía, animaciones y procedimiento de revisión visual. `tools/palette_check.py` lee las tablas de §1 y §3 de este archivo; **no cambies su formato** sin actualizar el script.
@@ -89,7 +89,7 @@ Resultados de la última ejecución: ver §10.
 
 Resolución de referencia: 1080 × 1920 px (vertical). `W` y `H` son el ancho y alto del área visible; `S_top` y `S_bottom` las inserciones de área segura. A efectos de tamaño mínimo, 1 dp = `W / 411` px (equivalencia de un teléfono de 1080 px de ancho y densidad 2.625).
 
-- **ART-010** `[P]` **Arena:** centro en `(W/2, S_top + (H − S_top − S_bottom) · 0.50)`. `R_px = min(0.42 · W, 0.30 · (H − S_top − S_bottom))`. Nada de la interfaz puede invadir el círculo de radio `1.05 · R_px` (FR-FAIR-006).
+- **ART-010** `[P]` **Arena** (modificado por CR-001): sean `H_s = H − S_top − S_bottom`, `H_T = 136 dp` (banda superior), `H_B = 64 dp` (banda inferior) y `H_N(R) = 36 dp + 0.08 · R_px` (bloque SIGUIENTE). Radio: `R_px = min(0.42 · W, 0.30 · H_s, (H_s − H_T − H_B − 52 dp) / 2.18)`. Centro: `x = W/2`, `y = S_top + H_T + (H_s − H_T − H_B − H_N(R_px)) / 2`. Nada de la interfaz puede invadir el círculo de radio `1.05 · R_px` (FR-FAIR-006).
 - **ART-011** `[P]` **Núcleo** (radio `core_radius`): capas de dentro a fuera:
   1. Esfera con gradiente radial: centro = color objetivo mezclado 40 % con blanco; borde = color objetivo.
   2. Símbolo del objetivo (ART-002), tamaño `1.2 · core_radius`.
@@ -165,3 +165,4 @@ Salida de `python3 tools/palette_check.py` registrada en la fase Clarify: ver `c
 | Versión | Fecha | Cambio |
 |---------|-------|--------|
 | 0.1.0 | 2026-10-23 | Primera guía propuesta. |
+| 0.2.0 | 2026-10-23 | CR-001: fórmula de la arena con reserva para las bandas del HUD. |

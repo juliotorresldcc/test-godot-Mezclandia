@@ -128,7 +128,10 @@ Necesito tu autorización para **descargar en el entorno** el binario de Godot 4
 
 ## 6. Solicitudes de cambio
 
-Ninguna todavía.
+| ID | Fecha | Origen | Cambio | Impacto | Estado |
+|----|-------|--------|--------|---------|--------|
+| CR-001 | 2026-10-23 | Fase Implement, T13 (diseño de `Layout`) | La fórmula original de ART-010 (`R = min(0.42W, 0.30H_s)`, centro al 50 %) hace que, con relación 3:4 (1440×1920 en coordenadas de lienzo), la arena (borde superior en y ≈ 355 px) invada la banda superior del HUD (≈ 477 px), incumpliendo FR-FAIR-006. Se añade un tercer término al radio y se centra la arena en el espacio libre entre bandas. | art-direction ART-010 → 0.2.0; `Layout`; TEST-LAY-01. Sin cambios de reglas de juego. En 9:16 y 9:20 el radio no cambia (453.6 px); en 3:4 baja de 576 a 475.7 px. | Aplicado (corrección de defecto: necesaria para cumplir un requisito ya aprobado). |
+| CR-002 | 2026-10-23 | Fase Implement, T11 | FR-MIS-005 no precisaba si la plantilla de la misión reclamada puede volver a salir. Interpretación aplicada: el hueco reclamado queda libre, así que se elige entre las plantillas que no ocupan los **otros** huecos (puede repetirse la reclamada, con su nivel aumentado). | spec FR-MIS-005 (aclaración, versión PARCHE). | Aplicado como aclaración; revisable por el propietario. |
 
 ## 7. Historial de resoluciones
 
